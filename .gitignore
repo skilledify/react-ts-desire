@@ -1,0 +1,27 @@
+node_modules
+dist/
+
+# IIFE bundle used by scripts/smoke.mjs
+.smoke/
+
+# Legacy build output (removed in the Vite rewrite)
+img/
+css/
+js/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local npm cache (workaround for a read-only global cache)
+.npm-cache/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Env
+.env
+.env.local
