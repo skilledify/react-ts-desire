@@ -1,7 +1,5 @@
 <!-- README badges -->
-<p align="center">
-  <img src="src/assets/img/logo.png" alt="Desire logo" width="140" />
-</p>
+
 
 <h1 align="center">Desire — Furniture for Life</h1>
 
