@@ -102,7 +102,7 @@ npm run dev
 
 | Path | Page | Contents |
 | --- | --- | --- |
-| `/` | `HomePage` | hero slider, new collection, decor banner, how-it-works, gallery, blog teasers |
+| `/` | `HomePage` | hero slider, new collection, decor banner, gallery, blog teasers |
 | `/about` | `AboutPage` | about section + video, inspiration metrics, partners, collection |
 | `/gallery` | `GalleryPage` | filterable category grid |
 | `/blog` | `BlogPage` | post list with video/slider embeds, aside, pagination (`?page=`) |
@@ -129,7 +129,7 @@ src/
 │   └── …                 # promo, social, icons
 ├── components/
 │   ├── layout/           # Layout, Header, Footer, Breadcrumbs, ScrollToTop
-│   ├── sections/         # 17 page sections (Gallery, Blog, Decor, Partners, …)
+│   ├── sections/         # 16 page sections (Gallery, Blog, Decor, Partners, …)
 │   ├── sliders/          # 3 Swiper carousels (Hero, Article, Contact)
 │   └── ui/               # Icon, VideoModal, VideoBlock, CustomCheckbox
 ├── pages/                # one file per route
@@ -288,7 +288,7 @@ npm run dev        # http://localhost:5173
 
 | Путь | Страница | Содержимое |
 | --- | --- | --- |
-| `/` | `HomePage` | hero-слайдер, новая коллекция, декор-баннер, как это работает, галерея, блог |
+| `/` | `HomePage` | hero-слайдер, новая коллекция, декор-баннер, галерея, блог |
 | `/about` | `AboutPage` | о нас + видео, метрики вдохновения, партнёры, коллекция |
 | `/gallery` | `GalleryPage` | фильтруемая сетка по категориям |
 | `/blog` | `BlogPage` | список постов, aside, пагинация (`?page=`) |

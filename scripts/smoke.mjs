@@ -32,7 +32,7 @@ try {
 const SHELL = '<!doctype html><html><head></head><body><div id="root"></div></body></html>'
 
 const ROUTES = [
-  { path: '/', expect: ['Furniture new collection', 'How it works', 'Aesthetic ethical drinking', 'Crafted for the way you live', 'Seasonal sale', 'Days', 'Hours', 'Minutes', 'Seconds'] },
+  { path: '/', expect: ['Furniture new collection', 'Aesthetic ethical drinking', 'Crafted for the way you live', 'Seasonal sale', 'Days', 'Hours', 'Minutes', 'Seconds'] },
   { path: '/about', expect: ['About Us', 'Our Inspiration in details'] },
   { path: '/gallery', expect: ['Bedroom furniture', 'Living room furniture'] },
   { path: '/blog', expect: ['Authentic kogi shabby chic', 'Recent Posts'] },
@@ -151,6 +151,21 @@ const check = (name, condition, detail = '') => {
   const after = doc.querySelector('img[alt^="bedroom furniture"]')?.getAttribute('alt')
   check('gallery filter switches category', Boolean(before && after && after !== before), `${before} -> ${after}`)
   check('gallery filter has no console errors', errors.length === 0, errors.join(' | '))
+  dom.window.close()
+}
+
+// 1b. Discount countdown — every visit restarts the offer at 15 days.
+{
+  const { dom, errors } = mount('/')
+  await tick()
+  const doc = dom.window.document
+
+  const daysValue = doc
+    .querySelector('[role="timer"]')
+    ?.querySelector('span')
+    ?.textContent?.trim()
+  check('countdown starts at 15 days', daysValue === '15', daysValue ?? 'no timer')
+  check('countdown has no console errors', errors.length === 0, errors.join(' | '))
   dom.window.close()
 }
 

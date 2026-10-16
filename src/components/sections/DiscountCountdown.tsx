@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 import {
   DISCOUNT_BADGE,
-  DISCOUNT_ENDS_AT,
-  DISCOUNT_ENDS_AT_LABEL,
+  DISCOUNT_DURATION_DAYS,
   DISCOUNT_TEXT,
   DISCOUNT_TITLE,
 } from '@/data/promo'
 import styles from './DiscountCountdown.module.css'
+
+const MS_PER_DAY = 86_400_000
 
 interface TimeLeft {
   days: number
@@ -17,13 +18,15 @@ interface TimeLeft {
 }
 
 
-function getTimeLeft(): TimeLeft {
-  const diff = Math.max(0, new Date(DISCOUNT_ENDS_AT).getTime() - Date.now())
+function getTimeLeft(deadline: number): TimeLeft {
+  // Math.ceil keeps the boundary exact: a few ms after the mount the display
+  // still reads "14 00:00:00" instead of "13 23:59:59".
+  const totalSeconds = Math.max(0, Math.ceil((deadline - Date.now()) / 1_000))
   return {
-    days: Math.floor(diff / 86_400_000),
-    hours: Math.floor((diff / 3_600_000) % 24),
-    minutes: Math.floor((diff / 60_000) % 60),
-    seconds: Math.floor((diff / 1_000) % 60),
+    days: Math.floor(totalSeconds / 86_400),
+    hours: Math.floor((totalSeconds / 3_600) % 24),
+    minutes: Math.floor((totalSeconds / 60) % 60),
+    seconds: totalSeconds % 60,
   }
 }
 
@@ -39,12 +42,21 @@ const pad = (value: number) => String(value).padStart(2, '0')
 
 
 export function DiscountCountdown() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(getTimeLeft)
+  // The deadline is computed once per mount: every visit to the site starts
+  // a fresh countdown instead of counting down to a fixed calendar date.
+  const [deadline] = useState(() => Date.now() + DISCOUNT_DURATION_DAYS * MS_PER_DAY)
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(() => getTimeLeft(deadline))
 
   useEffect(() => {
-    const id = window.setInterval(() => setTimeLeft(getTimeLeft()), 1000)
+    const id = window.setInterval(() => setTimeLeft(getTimeLeft(deadline)), 1000)
     return () => window.clearInterval(id)
-  }, [])
+  }, [deadline])
+
+  const endsAtLabel = new Date(deadline).toLocaleDateString('en-US', {
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+  })
 
   const isExpired = Object.values(timeLeft).every((value) => value === 0)
 
@@ -69,7 +81,7 @@ export function DiscountCountdown() {
             <div
               className={styles.timer}
               role="timer"
-              aria-label={`Offer ends ${DISCOUNT_ENDS_AT_LABEL}`}
+              aria-label={`Offer ends ${endsAtLabel}`}
             >
               {UNITS.map((unit) => (
                 <div key={unit.key} className={styles.timerItem}>

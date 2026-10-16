@@ -28,7 +28,6 @@ export function HeroVideo() {
         muted
         loop
         playsInline
-        playbackRate={HERO_VIDEO_PLAYBACK_RATE}
         aria-hidden="true"
         tabIndex={-1}
       />

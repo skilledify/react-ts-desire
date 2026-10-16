@@ -58,7 +58,7 @@ export function Gallery({ variant = 'home' }: GalleryProps) {
             {items.map((item, index) => (
               <div
                 key={item.id}
-                className={`${styles.galleryItem} $ {
+                className={`${styles.galleryItem} ${
                   isFeatured(index, variant) ? styles.galleryItemFeatured : ''
                 }`}
               >

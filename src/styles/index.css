@@ -112,7 +112,9 @@ a {
 
 
 body {
-  height: 100vh;
+  min-height: 100vh;
+  /* Real device viewport on mobile: 100vh overcounts the browser chrome. */
+  min-height: 100dvh;
   font-family: var(--font-body);
   font-size: 16px;
   line-height: 27px;
