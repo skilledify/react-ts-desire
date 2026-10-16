@@ -1,0 +1,325 @@
+.header {
+  /* Sticky (not fixed) keeps the header in the normal flow, so its width is
+     still resolved from the containing block exactly as before — it never
+     jumps or introduces a horizontal scrollbar when the layout adapts. */
+  position: sticky;
+  top: 0;
+  /* Above every page section (max content z-index is 10) so scrolling content
+     passes underneath, but well below the video modal overlay (100). */
+  z-index: 20;
+  /* Solid backdrop so content scrolling under the pinned header never shows
+     through the logo/menu. */
+  background-color: var(--color-white);
+  /* Subtle separation from the content once it slides under the header. */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  padding: 45px 0;
+
+  /* Yellow accent seam on the bottom edge — the same hero-framing seam that
+     the countdown bar (top) and banner bar (bottom) use around the hero
+     block, so the header reads as part of that same visual language.
+     `position: sticky` already makes the header a positioned ancestor, so
+     the seam anchors to its bottom edge without an extra `relative`. */
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-yellow) 25%,
+      var(--color-yellow) 75%,
+      transparent
+    );
+    z-index: 2;
+  }
+}
+
+.headerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  background-color: transparent;
+  cursor: pointer;
+
+  img {
+    display: block;
+  }
+}
+
+.btnMenu {
+  display: none;
+  position: relative;
+  z-index: 12;
+  background-color: transparent;
+  cursor: pointer;
+
+  /* Each bar is 3px tall with 6px margins, so the outer bars sit 9px
+     away from the middle one — that offset turns them into a cross. */
+  span {
+    transition: var(--ease);
+  }
+}
+
+/* Burger → close (cross) toggle. */
+.btnMenuOpen {
+  span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  span:nth-child(2) {
+    opacity: 0;
+  }
+
+  span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
+
+.logo {
+  margin: 0 15px;
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 12;
+}
+
+/* ------------------------------------------------------------- main menu -- */
+.menu {
+  padding-right: 15px;
+}
+
+.menuList {
+  display: flex;
+}
+
+.menuItem + .menuItem {
+  margin-left: 80px;
+}
+
+.menuLink {
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--color-title-90);
+  font-size: 16px;
+  line-height: 22px;
+  transition: var(--ease);
+}
+
+.menuLink:hover {
+  color: var(--color-title);
+}
+
+.menuLink[aria-current='page'] {
+  padding-bottom: 4px;
+  position: relative;
+}
+
+.menuLink[aria-current='page']::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 1px;
+  background-color: var(--color-title);
+}
+
+/* --------------------------------------------------- slide-in side panel -- */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 14;
+  background-color: rgba(54, 56, 56, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  cursor: pointer;
+  transition: var(--ease-slow);
+}
+
+.backdropVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.rightsideMenu {
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  max-width: 694px;
+  width: 100%;
+  overflow-y: auto;
+  background-color: var(--color-white);
+  padding-top: 40px;
+  box-shadow: -2px 3px 17px 0 #000;
+  transition: transform 0.5s;
+  transform: translateX(100%);
+}
+
+.rightsideMenuOpen {
+  transform: translateX(0%);
+}
+
+.rightsideCloseBtn {
+  background-color: transparent;
+  cursor: pointer;
+  margin-left: 50px;
+  margin-bottom: 60px;
+}
+
+.rightsideLogo {
+  margin-bottom: 40px;
+  display: inline-block;
+}
+
+.rightsideContent {
+  text-align: center;
+  max-width: 485px;
+  margin: 0 auto;
+}
+
+.rightsideTitle {
+  color: var(--color-title);
+  font-size: 36px;
+  line-height: 51px;
+  text-align: center;
+  padding-bottom: 22px;
+  margin-bottom: 17px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-width: 252px;
+    margin: 0 auto;
+    height: 1px;
+    background-color: var(--color-divider);
+  }
+}
+
+.rightsideText {
+  margin-bottom: 75px;
+  color: var(--color-default);
+}
+
+.rightsideImg {
+  max-width: 485px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ------------------------------------------------------------ breakpoints -- */
+@media (max-width: 768px) {
+  .logo {
+    margin: 0 30px;
+  }
+
+  .btn {
+    display: none;
+  }
+
+  .menuItem {
+    padding-left: 0;
+  }
+
+  .menuItem + .menuItem {
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 580px) {
+  .header {
+    padding-top: 42px;
+    padding-bottom: 0;
+  }
+
+  .headerInner {
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    order: -1;
+    /* Drop the 30px inset from the 768px rule so the logo sits flush with
+       the container's content edge (only the 15px gutter remains). */
+    margin-left: 0;
+  }
+
+  .btnMenu {
+    order: -1;
+    display: block;
+
+    span {
+      background-color: #000;
+      width: 37px;
+      height: 3px;
+      border-radius: 4px;
+      display: block;
+      margin: 6px 0;
+    }
+  }
+
+  .menu {
+    padding-right: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    position: relative;
+    z-index: 21;
+    text-align: center;
+    transition: transform 0.5s;
+    transform: translateY(-300px);
+  }
+
+  .menuOpen {
+    transform: translateY(0);
+  }
+
+  .menuList {
+    display: block;
+  }
+
+  .menuItem {
+    padding-right: 0;
+  }
+
+  .menuItem + .menuItem {
+    padding-left: 0;
+    display: block;
+    margin-left: 0;
+  }
+
+  .menuLink {
+    display: block;
+    padding: 15px 0;
+    margin-left: 0;
+  }
+
+  .menuLink[aria-current='page']::after {
+    display: none;
+  }
+}
+
+@media (max-width: 475px) {
+  .rightsideContent {
+    max-width: 300px;
+  }
+
+  .rightsideTitle {
+    font-size: 34px;
+  }
+
+  .rightsideText {
+    font-size: 14px;
+    line-height: 25px;
+  }
+}

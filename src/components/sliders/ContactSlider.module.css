@@ -1,0 +1,92 @@
+.contactSlider {
+  padding: 102px 0;
+}
+
+.contactSliderInner {
+  :global(.swiper-pagination) {
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+
+  :global(.swiper-pagination-bullet) {
+    width: 8px;
+    height: 8px;
+    margin: 0 15px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--color-title);
+    opacity: 1;
+    font-size: 0;
+    cursor: pointer;
+    transition: var(--ease);
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    background-color: var(--color-yellow);
+  }
+}
+
+.contactSliderLink {
+  margin-bottom: 20px;
+  position: relative;
+  display: block;
+}
+
+.contactSliderLink:hover .contactSliderTitle,
+.contactSliderLink:focus-visible .contactSliderTitle {
+  opacity: 1;
+}
+
+.contactSliderImg {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.contactSliderTitle {
+  transition: opacity 0.5s;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-overlay-60);
+  padding: 0 var(--gutter);
+  text-align: center;
+  font-family: var(--font-title);
+  font-weight: 700;
+  line-height: 22px;
+  opacity: 0;
+}
+
+/* ------------------------------------------------------------ breakpoints -- */
+@media (max-width: 1700px) {
+  .contactSliderImg {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .contactSliderImg {
+    height: 240px;
+  }
+}
+
+@media (max-width: 650px) {
+  .contactSliderInner :global(.swiper-pagination-bullet) {
+    margin: 0 5px;
+  }
+}
+
+@media (max-width: 375px) {
+  .contactSliderImg {
+    height: 310px;
+  }
+}

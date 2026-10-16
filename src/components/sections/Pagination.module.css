@@ -1,0 +1,41 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paginationArrow {
+  margin: 0 6px;
+  display: block;
+  line-height: 0;
+}
+
+.paginationArrowDisabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.paginationList {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.paginationListItem {
+  margin: 0 6px;
+}
+
+.paginationListNum {
+  font-weight: 600;
+  color: var(--color-soft);
+  transition: var(--ease);
+
+  &:hover {
+    color: var(--color-title);
+  }
+}
+
+.paginationListNumActive {
+  color: var(--color-title);
+}

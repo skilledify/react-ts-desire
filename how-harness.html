@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HowItWorks layout harness</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:ital,wght@0,400;0,600;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="dist/assets/index-BKYQwgO0.css" />
+    <link rel="stylesheet" href="dist/assets/HomePage-B33mijjO.css" />
+    <style>
+      body {
+        min-height: auto;
+      }
+    </style>
+    <script>
+      window.addEventListener('load', () => {
+        const out = ['vw=' + innerWidth + ' doc=' + document.documentElement.scrollWidth];
+        document.querySelectorAll('body *').forEach((el) => {
+          const r = el.getBoundingClientRect();
+          if (r.right > innerWidth + 0.5 && el.id !== 'OUT') {
+            const cs = getComputedStyle(el);
+            out.push(
+              'OVERFLOW ' +
+                (el.className || el.tagName) +
+                ' right=' + r.right.toFixed(0) +
+                ' w=' + r.width.toFixed(0) +
+                ' box=' + cs.boxSizing +
+                ' cssW=' + cs.width +
+                ' padL=' + cs.paddingLeft +
+                ' pos=' + cs.position
+            );
+          }
+        });
+        const items = document.querySelector('[class*="_howItems_"]:not([class*="Box"])');
+        const cs = getComputedStyle(items);
+        const cont = items.parentElement;
+        const ccs = getComputedStyle(cont);
+        const fmt = (el, c) =>
+          'rect=' + el.getBoundingClientRect().width.toFixed(0) +
+          ' cssW=' + c.width + ' box=' + c.boxSizing + ' disp=' + c.display + ' padL=' + c.paddingLeft;
+        const report = out.concat([
+          'ITEMS ' + fmt(items, cs),
+          'CONT ' + fmt(cont, ccs),
+          'ITEMS parentIsContainer=' + (cont.className === 'container'),
+          'ITEMS styleAttr=[' + items.getAttribute('style') + ']',
+        ]);
+        items.style.width = 'auto';
+        report.push('after width:auto -> ' + fmt(items, getComputedStyle(items)));
+        items.style.width = '';
+        items.style.paddingLeft = '0px';
+        report.push('after padL:0 -> ' + fmt(items, getComputedStyle(items)));
+        items.style.paddingLeft = '';
+        const scan = (rules, label) => {
+          for (const r of rules) {
+            if (r.cssRules) scan(r.cssRules, label + '[m]');
+            else if (r.selectorText && r.selectorText.includes('_howItems_2by48_5'))
+              report.push('RULE ' + label + ' ' + r.cssText);
+          }
+        };
+        for (const ss of document.styleSheets) {
+          try {
+            scan(ss.cssRules, ss.href ? ss.href.split('/').pop() : 'inline');
+          } catch (e) {
+            report.push('RULE ERR');
+          }
+        }
+        const d = document.createElement('div');
+        d.id = 'OUT';
+        d.textContent = report.join(' || ');
+        d.style.cssText =
+          'position:fixed;top:0;left:0;right:0;background:#ff0;color:#000;' +
+          'font:16px/1.5 monospace;padding:6px;z-index:9999;white-space:pre-wrap;word-break:break-all';
+        document.body.appendChild(d);
+      });
+    </script>
+  </head>
+  <body>
+    <section class="_how_2by48_5">
+      <div class="container">
+        <h3 class="_howTitle_2by48_18">How it works</h3>
+        <div class="_howItems_2by48_5">
+          <div class="_howItemsBox_2by48_5">
+            <div class="_howItem_2by48_5 _itemConsultation_2by48_54">
+              <img class="_howItemImg_2by48_90" src="public/img/how-1.svg" alt="Designer consultation" />
+              <h6 class="_howItemTitle_2by48_94">Designer Consultation</h6>
+              <p class="_howItemText_2by48_98">
+                Kinfolk scenester authentic craft beer truffaut irony intelligentsia YOLO lomo bushwick
+                coloring book. Semiotics man bun venmo viral cliche
+              </p>
+            </div>
+            <div class="_howItem_2by48_5 _itemProduction_2by48_55">
+              <img class="_howItemImg_2by48_90" src="public/img/how-2.svg" alt="Production" />
+              <h6 class="_howItemTitle_2by48_94">Production</h6>
+              <p class="_howItemText_2by48_98">
+                Everyday carry actually neutra authentic kogi shabby chic
+              </p>
+            </div>
+          </div>
+          <div class="_howItem_2by48_5 _itemMeasurements_2by48_7">
+            <img class="_howItemImg_2by48_90" src="public/img/how-3.svg" alt="Measurements" />
+            <h6 class="_howItemTitle_2by48_94">Measurements</h6>
+            <p class="_howItemText_2by48_98">
+              Intelligentsia YOLO lomo bushwick coloring book. Semiotics man bun venmo viral cliche
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

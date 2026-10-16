@@ -1,0 +1,217 @@
+.gallery {
+  padding: 80px 0;
+}
+
+.galleryHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.galleryTitle {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 46px;
+  color: var(--color-title);
+  position: relative;
+  padding-bottom: 18px;
+  margin-bottom: 30px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 120px;
+    height: 2px;
+    margin: 0 auto;
+    background: var(--color-yellow);
+  }
+}
+
+.galleryButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.galleryBtn {
+  padding: 6px 16px;
+  border: 1px solid var(--color-tag-border);
+  border-radius: 20px;
+  background-color: transparent;
+  color: var(--color-tag);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  transition: var(--ease);
+
+  &:hover {
+    border-color: var(--color-title);
+    color: var(--color-title);
+  }
+
+  &:not(:last-child) {
+    margin-right: 25px;
+  }
+}
+
+/* Per-category photo count shown inside each filter pill. */
+.galleryBtnCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background-color: var(--color-grey-50);
+  color: var(--color-default);
+  font-size: 12px;
+  font-weight: 700;
+  transition: var(--ease);
+}
+
+.galleryBtnActive {
+  border-color: var(--color-yellow);
+  background-color: var(--color-yellow);
+  color: var(--color-title);
+
+  .galleryBtnCount {
+    background-color: var(--color-title);
+    color: var(--color-yellow);
+  }
+}
+
+/* Live-updating "showing N of M" line makes the filter result explicit. */
+.galleryStatus {
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.galleryInner {
+  animation: galleryFade 0.4s ease;
+}
+
+.galleryItems {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  /* Backfill the holes left around the 2×2 featured tile so the grid
+     always renders as a solid block with no empty cells. */
+  grid-auto-flow: row dense;
+  gap: 30px 34px;
+}
+
+.galleryItem {
+  overflow: hidden;
+}
+
+.galleryItemFeatured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.galleryItemLink {
+  display: block;
+  height: 100%;
+}
+
+.galleryItemImg {
+  object-fit: cover;
+  width: 100%;
+  max-height: 1150px;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.galleryItemLink:hover .galleryItemImg {
+  transform: scale(1.04);
+}
+
+.galleryPage {
+  .galleryItem img {
+    max-height: 1180px;
+  }
+}
+
+@keyframes galleryFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------------------------------------ breakpoints -- */
+@media (max-width: 992px) {
+  .galleryItems {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .galleryItems {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+  }
+
+  /* Pills wrap onto several rows — drop the desktop margin spacing so the
+     row gap takes over instead of pushing content past the viewport. */
+  .galleryButtons {
+    gap: 12px 15px;
+  }
+
+  .galleryBtn:not(:last-child) {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 580px) {
+  .gallery {
+    padding: 50px 0;
+  }
+
+  .galleryTitle {
+    font-size: 28px;
+    line-height: 38px;
+  }
+
+  .galleryButtons {
+    margin-bottom: 16px;
+  }
+}
+
+@media (max-width: 475px) {
+  .galleryItems {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 15px;
+  }
+
+  .galleryItemFeatured {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  /* Single column: keep each tile square at any width from 320px up
+     instead of alternating fixed rows with stretched auto rows. */
+  .galleryItemImg {
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+}

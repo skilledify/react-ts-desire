@@ -1,0 +1,128 @@
+.collection {
+  padding-bottom: 70px;
+}
+
+.collectionItems {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+}
+
+.collectionItem {
+  position: relative;
+  display: block;
+}
+
+.collectionItem:hover .collectionInfo,
+.collectionItem:focus-visible .collectionInfo {
+  opacity: 1;
+}
+
+.collectionImg {
+  display: block;
+  max-width: 350px;
+  width: 100%;
+  /* Keep the photo centred inside wider grid cells so the hover overlay
+     below always sits exactly on top of it. */
+  margin-inline: auto;
+  object-fit: cover;
+}
+
+.collectionInfo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Mirror the image box (350px cap, centred) so the centred text stays
+     over the photo at every viewport width, not just narrow cells. */
+  max-width: 350px;
+  margin-inline: auto;
+  background-color: var(--color-overlay-70);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.collectionInfoTitle {
+  font-family: var(--font-title);
+  font-size: 20px;
+  line-height: 25px;
+  color: var(--color-title);
+  padding-bottom: 19px;
+  margin-bottom: 19px;
+  position: relative;
+  text-align: center;
+
+  &::after {
+    content: '';
+    bottom: 0;
+    position: absolute;
+    background: var(--color-divider);
+    height: 1px;
+    width: 200px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+}
+
+.collectionInfoText {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 28px;
+  color: var(--color-soft);
+  text-align: center;
+}
+
+/* ------------------------------------------------------------ breakpoints -- */
+@media (max-width: 1920px) {
+  .collectionItems {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .collectionImg {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1366px) {
+  .collectionItems {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  .collectionItems {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .collectionItems {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .collectionImg {
+    max-width: 100%;
+  }
+
+  .collectionInfo {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 475px) {
+  .collectionItems {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px 0;
+  }
+
+  .collectionImg {
+    width: 100%;
+  }
+}

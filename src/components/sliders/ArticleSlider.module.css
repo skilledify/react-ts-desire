@@ -1,0 +1,45 @@
+.articleSlider {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.articleSliderItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.articleSliderImg {
+  width: 100%;
+  max-height: 560px;
+  object-fit: cover;
+}
+
+.arrow {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  cursor: pointer;
+  transition: var(--ease);
+  line-height: 0;
+  padding: 8px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  /* Hide an arrow while looped duplicate slides are being simulated. */
+  &.swiper-button-lock {
+    display: none;
+  }
+}
+
+.arrowPrev {
+  left: 16px;
+}
+
+.arrowNext {
+  right: 16px;
+}

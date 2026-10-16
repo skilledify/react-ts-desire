@@ -1,0 +1,10 @@
+.playButton {
+  display: inline-flex;
+  cursor: pointer;
+  background: transparent;
+  transition: var(--ease);
+
+  &:hover {
+    transform: scale(1.06);
+  }
+}

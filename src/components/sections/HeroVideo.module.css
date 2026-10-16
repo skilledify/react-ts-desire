@@ -1,0 +1,116 @@
+.hero {
+  position: relative;
+  /* A touch taller than the site's average blocks (~414–722px). */
+  height: 800px;
+  display: flex;
+  align-items: center;
+  /* Fallback backdrop shown while the video loads. */
+  background:
+    linear-gradient(var(--color-title-70), var(--color-title-70)),
+    url('../../assets/img/video_post.jpg') no-repeat center / cover;
+  overflow: hidden;
+}
+
+/* Autoplaying furniture film fills the block and crops as needed. */
+.heroVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark tint in the site's palette keeps the headline readable. */
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-title-70);
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 1;
+}
+
+.heroContent {
+  max-width: 760px;
+}
+
+.heroTitle {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 90px;
+  line-height: 110px;
+  color: var(--color-white);
+  padding-bottom: 26px;
+  margin-bottom: 26px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 185px;
+    height: 2px;
+    background: var(--color-yellow);
+  }
+}
+
+.heroText {
+  color: var(--color-grey);
+  font-size: 18px;
+  line-height: 30px;
+  max-width: 560px;
+}
+
+/* ------------------------------------------------------------ breakpoints -- */
+@media (max-width: 1200px) {
+  .hero {
+    height: 640px;
+  }
+
+  .heroTitle {
+    font-size: 62px;
+    line-height: 76px;
+  }
+}
+
+@media (max-width: 850px) {
+  .hero {
+    height: 520px;
+  }
+
+  .heroTitle {
+    font-size: 44px;
+    line-height: 56px;
+  }
+
+  .heroText {
+    font-size: 16px;
+    line-height: 27px;
+  }
+}
+
+@media (max-width: 580px) {
+  .hero {
+    height: 440px;
+  }
+}
+
+@media (max-width: 475px) {
+  .hero {
+    height: 380px;
+  }
+
+  .heroTitle {
+    font-size: 32px;
+    line-height: 42px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    &::after {
+      width: 120px;
+    }
+  }
+}

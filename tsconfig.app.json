@@ -24,7 +24,9 @@
     "noUncheckedSideEffectImports": true,
 
     /* Paths */
-    "baseUrl": ".",
+    /* Resolved relative to this file's directory; no `baseUrl` needed
+       (deprecated in TS 6, removed in TS 7). Mirrors the `@` alias in
+       vite.config.ts / vite.smoke.config.ts. */
     "paths": {
       "@/*": ["./src/*"]
     }

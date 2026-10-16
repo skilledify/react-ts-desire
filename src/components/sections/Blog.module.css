@@ -1,0 +1,156 @@
+.blog {
+  padding: 60px 0 66px;
+}
+
+.blogInner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blogItems {
+  width: 730px;
+  max-width: 100%;
+}
+
+.blogItemImg {
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.blogItemInfo {
+  color: var(--color-soft);
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+
+.blogItemInfoDate,
+.blogItemInfoAuthor,
+.blogItemInfoTitle {
+  color: var(--color-soft);
+  font-weight: 600;
+  transition: var(--ease);
+}
+
+.blogItemInfoTitle:hover,
+.blogItemInfoAuthor:hover {
+  color: var(--color-title);
+}
+
+.blogItemTitle {
+  font-size: 24px;
+  line-height: 38px;
+  color: var(--color-title);
+}
+
+.blogItemTitleFirst {
+  margin-bottom: 6px;
+}
+
+.blogItemTitleSecond {
+  margin-bottom: 93px;
+}
+
+.blogItemTitleThird {
+  margin-bottom: 3px;
+}
+
+.blogItemText {
+  color: var(--color-default);
+}
+
+.blogItemTextTop {
+  margin-bottom: 122px;
+}
+
+.blogItemTextBottom {
+  margin-bottom: 50px;
+}
+
+.blogBlockquote {
+  padding: 54px 64px;
+  background: var(--color-grey-50);
+  margin-bottom: 50px;
+}
+
+.blogBlockquoteText {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 38px;
+  text-align: center;
+  color: var(--color-title);
+  padding-bottom: 23px;
+  margin-bottom: 23px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 1px;
+    background: var(--color-divider);
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+  }
+}
+
+.blogBlockquoteAuthor {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  color: var(--color-title-90);
+}
+
+.articlePopup {
+  background-image: url('../../assets/img/blog-popup-bg.jpg');
+  background-repeat: no-repeat;
+  height: 415px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+/* ------------------------------------------------------------ breakpoints -- */
+@media (max-width: 1121px) {
+  .blogInner {
+    flex-wrap: wrap;
+  }
+
+  .blogItems {
+    max-width: 100%;
+  }
+
+  .blogItemImg {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .blogItemTextTop {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 650px) {
+  .blogBlockquote {
+    padding: 32px 24px;
+  }
+}
+
+@media (max-width: 475px) {
+  .blogBlockquote {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .blogItemTitle {
+    font-size: 19px;
+  }
+}

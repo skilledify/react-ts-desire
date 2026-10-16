@@ -1,0 +1,153 @@
+.banner {
+  position: relative;
+  /* Same fixed height as the promo countdown bar (single source of truth). */
+  height: var(--promo-bar-height);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: var(--color-white);
+
+  /* Yellow accent seam on the hero-facing edge — pairs with the countdown bar
+     above to frame the hero block. */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-yellow) 25%,
+      var(--color-yellow) 75%,
+      transparent
+    );
+    z-index: 2;
+  }
+
+  /* Yellow accent seam on the bottom edge — the same highlight the site
+     header carries along its bottom, so the banner is marked off the same way. */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-yellow) 25%,
+      var(--color-yellow) 75%,
+      transparent
+    );
+    z-index: 2;
+  }
+}
+
+/* Dark photo fills the bar and crops like the hero video. */
+.bannerBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Charcoal tint keeps the copy readable and echoes the countdown bar. */
+.bannerOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(var(--color-title-90), var(--color-title-90));
+}
+
+.bannerInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.bannerContent {
+  max-width: 560px;
+}
+
+.bannerBadge {
+  display: inline-block;
+  background-color: var(--color-yellow);
+  color: var(--color-title);
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.bannerTitle {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 32px;
+  color: var(--color-white);
+  margin-bottom: 6px;
+}
+
+.bannerText {
+  color: var(--color-grey);
+  font-size: 14px;
+  line-height: 20px;
+  /* Cap at two lines so the bar stays slim on wide screens. */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+.bannerBtn {
+  flex-shrink: 0;
+  display: inline-block;
+  background-color: var(--color-yellow);
+  color: var(--color-title);
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border: 1px solid var(--color-yellow);
+  border-radius: 30px;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--color-yellow);
+  }
+}
+
+/* ------------------------------------------------------------ breakpoints -- */
+@media (max-width: 992px) {
+  .bannerInner {
+    flex-direction: column;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .bannerContent {
+    max-width: 640px;
+  }
+}
+
+@media (max-width: 580px) {
+  .bannerTitle {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}

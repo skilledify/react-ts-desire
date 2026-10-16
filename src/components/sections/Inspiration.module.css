@@ -1,0 +1,110 @@
+.inspiration {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url('../../assets/img/inspiration-bg.jpg');
+    background-repeat: no-repeat;
+    height: 362px;
+    z-index: -1;
+  }
+}
+
+.inspirationInner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inspirationImg {
+  margin-right: 78px;
+  margin-left: -230px;
+}
+
+.inspirationContent {
+  max-width: 825px;
+}
+
+.inspirationTitle {
+  font-size: 36px;
+  line-height: 60px;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: var(--color-divider);
+    width: 200px;
+    height: 1px;
+  }
+}
+
+.inspirationText {
+  margin-bottom: 30px;
+  color: var(--color-default);
+}
+
+.inspirationItem {
+  font-size: 16px;
+  margin-bottom: 33px;
+}
+
+.inspirationItemContent {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 2px solid #fff;
+  border-radius: 4px;
+}
+
+.inspirationLine {
+  height: 2px;
+  border-radius: 4px;
+  background-color: var(--color-title);
+  margin-top: -2px;
+  transition: width 0.8s ease;
+}
+
+/* ------------------------------------------------------------ breakpoints -- */
+@media (max-width: 992px) {
+  .inspirationContent {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .inspirationImg {
+    display: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .inspirationTitle {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 400px) {
+  .inspirationTitle {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 375px) {
+  .inspirationTitle {
+    font-size: 22px;
+  }
+
+  .inspirationItemText,
+  .inspirationNum {
+    font-size: 14px;
+  }
+}

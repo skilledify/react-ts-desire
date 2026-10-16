@@ -1,0 +1,147 @@
+.aside {
+  width: 350px;
+  flex: 0 0 auto;
+  margin-left: 30px;
+}
+
+.asideSearch {
+  margin-bottom: 44px;
+  position: relative;
+}
+
+.asideSearchInput {
+  padding: 6px 45px 6px 18px;
+  border: 1px solid var(--color-title-70);
+  border-radius: 20px;
+  display: block;
+  width: 100%;
+
+  &::placeholder {
+    font-size: 14px;
+    line-height: 28px;
+    color: var(--color-muted);
+  }
+}
+
+.asideSearchBtn {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 12px;
+  right: 13px;
+  cursor: pointer;
+}
+
+.asideCategory {
+  margin-bottom: 47px;
+}
+
+.asideCategoryTitle {
+  line-height: 23px;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.asideCategoryItem:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.asideCategoryLink {
+  color: var(--color-default);
+  transition: var(--ease);
+
+  &:hover {
+    color: var(--color-title);
+  }
+}
+
+.asidePosts {
+  margin-bottom: 50px;
+}
+
+.asidePostsTitle {
+  line-height: 23px;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.asidePostsItem {
+  margin-bottom: 10px;
+}
+
+.asidePostsItemTitle {
+  color: var(--color-default);
+  display: block;
+  transition: var(--ease);
+
+  &:hover {
+    color: var(--color-title);
+  }
+}
+
+.asidePostsDate,
+.asidePostsAuthor {
+  color: var(--color-muted);
+}
+
+.asideTags {
+  margin-bottom: 21px;
+}
+
+.asideTagsTitle {
+  line-height: 23px;
+  font-size: 16px;
+  margin-bottom: 43px;
+}
+
+.asideTagsList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.asideTagsLink {
+  color: var(--color-tag);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0 16px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  line-height: 28px;
+  display: inline-block;
+  border: 1px solid var(--color-tag-border);
+  border-radius: 14px;
+  transition: var(--ease);
+
+  &:hover {
+    border-color: var(--color-title);
+    color: var(--color-title);
+  }
+}
+
+.asideSocialsList {
+  display: flex;
+  align-items: center;
+}
+
+.asideSocialsItem:not(:last-child) {
+  margin-right: 20px;
+}
+
+.asideSocialsLink {
+  display: block;
+  transition: var(--ease);
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+/* ------------------------------------------------------------ breakpoints -- */
+@media (max-width: 1121px) {
+  .aside {
+    width: 100%;
+    margin-left: 0;
+    order: -1;
+    margin-bottom: 50px;
+  }
+}

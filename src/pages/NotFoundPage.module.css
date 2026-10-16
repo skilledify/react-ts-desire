@@ -1,0 +1,31 @@
+.notFound {
+  padding: 120px 0;
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  line-height: 60px;
+  margin-bottom: 20px;
+}
+
+.text {
+  color: var(--color-muted);
+  margin-bottom: 30px;
+}
+
+.button {
+  display: inline-block;
+  padding: 6px 40px;
+  border-radius: 21px;
+  color: var(--color-cream);
+  background-color: var(--color-title);
+  font-weight: 600;
+}
+
+@media (max-width: 540px) {
+  .title {
+    font-size: 26px;
+    line-height: 40px;
+  }
+}

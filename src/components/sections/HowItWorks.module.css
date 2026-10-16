@@ -1,0 +1,206 @@
+/* ============================================================================
+   HowItWorks — the "How it works" timeline.
+
+   Desktop / tablet (block flow, deliberately NOT a flex row):
+     • `.howItemsBox`     — steps 1 + 2 in one row above a horizontal rule
+                            (dot marks the start, tick marks step 2);
+     • `.itemMeasurements` — step 3 on its own line right under the rule,
+                            staggered to the right (tick hangs from the rule).
+
+   ≤650px: the whole block folds into a vertical timeline — a spine with a
+   start dot on the left and a horizontal tick linking every step to it.
+   ========================================================================== */
+
+.how {
+  padding: 80px 0 30px;
+}
+
+.howTitle {
+  text-align: center;
+  margin-bottom: 41px;
+  font-size: 36px;
+  line-height: 51px;
+}
+
+.howItemsBox {
+  display: flex;
+  align-items: flex-end;
+  /* ≈316px on the 1140px container, scales down fluidly on smaller screens */
+  column-gap: clamp(120px, 28.5%, 316px);
+  border-bottom: 2px solid var(--color-title-70);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--color-title);
+  }
+}
+
+.howItem {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  min-width: 0;
+}
+
+/* Steps 1 + 2 share the row above the rule equally. */
+.itemConsultation,
+.itemProduction {
+  flex: 1 1 0;
+  padding-bottom: 38px;
+}
+
+.itemProduction {
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 20px;
+    width: 2px;
+    background: var(--color-title-70);
+  }
+}
+
+/* Step 3 hangs below the rule, staggered right (≈305px on the 1140 container). */
+.itemMeasurements {
+  width: 250px;
+  max-width: 100%;
+  padding-top: 38px;
+  margin-left: clamp(60px, 27.6%, 305px);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 2px;
+    background: var(--color-title-70);
+  }
+}
+
+.howItemImg {
+  flex: 0 0 auto;
+}
+
+.howItemTitle {
+  margin-left: 13px;
+}
+
+.howItemText {
+  color: var(--color-default);
+}
+
+/* ------------------------------------------------------------ breakpoints -- */
+@media (max-width: 768px) {
+  .how {
+    padding: 60px 0 20px;
+  }
+
+  .howTitle {
+    margin-bottom: 32px;
+  }
+
+  .itemMeasurements {
+    /* keep the stagger proportional to the narrower column */
+    margin-left: 15%;
+  }
+}
+
+@media (max-width: 650px) {
+  /* ---- vertical timeline ------------------------------------------------ */
+  .howItems {
+    position: relative;
+    padding-left: 30px;
+
+    /* spine */
+    &::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 6px;
+      bottom: 0;
+      width: 2px;
+      background: var(--color-title-70);
+    }
+
+    /* start dot */
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--color-title);
+    }
+  }
+
+  .howItemsBox {
+    flex-direction: column;
+    align-items: stretch;
+    row-gap: 34px;
+    border-bottom: none;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .howItem,
+  .itemConsultation,
+  .itemProduction,
+  .itemMeasurements {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    padding: 0;
+  }
+
+  .itemMeasurements {
+    margin-top: 34px;
+  }
+
+  /* horizontal ticks: every step links back to the spine */
+  .itemConsultation::after,
+  .itemProduction::after,
+  .itemMeasurements::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    width: 20px;
+    height: 2px;
+    bottom: auto;
+    background: var(--color-title-70);
+  }
+
+  /* tick aligned with the centre of each icon (icons are 42 / 34 / 26px tall) */
+  .itemConsultation::after {
+    top: 20px;
+  }
+
+  .itemProduction::after {
+    top: 16px;
+  }
+
+  .itemMeasurements::before {
+    top: 13px;
+  }
+}
+
+@media (max-width: 540px) {
+  .howTitle {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}

@@ -1,6 +1,9 @@
 node_modules
 dist/
 
+# IIFE bundle used by scripts/smoke.mjs
+.smoke/
+
 # Legacy build output (removed in the Vite rewrite)
 img/
 css/
