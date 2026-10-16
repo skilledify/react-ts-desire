@@ -3,13 +3,13 @@ export interface NavLink {
   to: string
 }
 
-/** Rendered on the left-hand side of the header. */
+
 export const HEADER_NAV_LEFT: NavLink[] = [
   { label: 'About', to: '/about' },
   { label: 'Gallery', to: '/gallery' },
 ]
 
-/** Rendered on the right-hand side of the header. */
+
 export const HEADER_NAV_RIGHT: NavLink[] = [
   { label: 'Blog', to: '/blog' },
   { label: 'Contact', to: '/contact' },

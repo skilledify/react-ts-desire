@@ -25,7 +25,7 @@ export function Pagination({ pages, activePage }: PaginationProps) {
         {pages.map((page) => (
           <li key={page} className={styles.paginationListItem}>
             <Link
-              className={`${styles.paginationListNum} ${
+              className={`${styles.paginationListNum} $ {
                 page === activePage ? styles.paginationListNumActive : ''
               }`}
               to={`/blog?page=${page}`}

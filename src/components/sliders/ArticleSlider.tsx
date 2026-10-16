@@ -7,7 +7,7 @@ import arrowRight from '@/assets/img/arrow-right.svg'
 import styles from './ArticleSlider.module.css'
 
 export function ArticleSlider() {
-  // Swiper needs the actual DOM nodes; state callbacks give us a stable reference.
+
   const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null)
   const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null)
 

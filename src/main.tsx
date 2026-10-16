@@ -3,8 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { RouterProvider } from 'react-router'
 import { router } from '@/router'
 
-// Base Swiper stylesheet — required once, individual sliders restyle
-// the generated classes inside their own *.module.css files.
+
 import 'swiper/css'
 import '@/styles/index.css'
 

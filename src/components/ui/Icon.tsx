@@ -7,7 +7,7 @@ interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'width' | 'height'> {
   height?: number
 }
 
-/** Renders one of the inline brand glyphs stored in `@/data/icons`. */
+
 export function Icon({ shape, width, height, ...rest }: IconProps) {
   return (
     <svg

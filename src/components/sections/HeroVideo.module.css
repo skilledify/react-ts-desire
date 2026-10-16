@@ -1,17 +1,17 @@
 .hero {
   position: relative;
-  /* A touch taller than the site's average blocks (~414–722px). */
+
   height: 800px;
   display: flex;
   align-items: center;
-  /* Fallback backdrop shown while the video loads. */
+
   background:
     linear-gradient(var(--color-title-70), var(--color-title-70)),
     url('../../assets/img/video_post.jpg') no-repeat center / cover;
   overflow: hidden;
 }
 
-/* Autoplaying furniture film fills the block and crops as needed. */
+
 .heroVideo {
   position: absolute;
   inset: 0;
@@ -20,7 +20,7 @@
   object-fit: cover;
 }
 
-/* Dark tint in the site's palette keeps the headline readable. */
+
 .heroOverlay {
   position: absolute;
   inset: 0;
@@ -64,7 +64,7 @@
   max-width: 560px;
 }
 
-/* ------------------------------------------------------------ breakpoints -- */
+
 @media (max-width: 1200px) {
   .hero {
     height: 640px;

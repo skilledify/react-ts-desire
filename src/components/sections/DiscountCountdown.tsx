@@ -16,7 +16,7 @@ interface TimeLeft {
   seconds: number
 }
 
-/** Remaining time until the fixed deadline, clamped at zero. */
+
 function getTimeLeft(): TimeLeft {
   const diff = Math.max(0, new Date(DISCOUNT_ENDS_AT).getTime() - Date.now())
   return {
@@ -34,15 +34,10 @@ const UNITS: Array<{ key: keyof TimeLeft; label: string }> = [
   { key: 'seconds', label: 'Seconds' },
 ]
 
-/** Leading-zero padded value, e.g. `07`. */
+
 const pad = (value: number) => String(value).padStart(2, '0')
 
-/**
- * Promo block with a discount countdown. The deadline is a fixed timestamp
- * (`DISCOUNT_ENDS_AT`), so every visitor sees the same remaining time — the
- * timer does not restart per session. When it reaches zero the block switches
- * to a static "offer has ended" state.
- */
+
 export function DiscountCountdown() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(getTimeLeft)
 

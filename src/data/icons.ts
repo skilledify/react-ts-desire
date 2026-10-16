@@ -3,7 +3,7 @@ export interface IconShape {
   height: number
   viewBox: string
   path: string
-  /** `fill` wins over `currentColor` when provided. */
+
   fill?: string
 }
 

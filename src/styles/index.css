@@ -1,13 +1,7 @@
-/* =============================================================================
-   Desire — global stylesheet
-   Contains design tokens, the reset, base element styles and the handful of
-   global utilities (container / btn) shared across the whole site.
-   Every component-specific rule lives in a co-located *.module.css file.
-   ========================================================================== */
 
-/* ---------------------------------------------------------------- tokens -- */
+
 :root {
-  /* Colours */
+
   --color-title: #363838;
   --color-title-90: rgba(54, 56, 56, 0.9033);
   --color-title-70: rgba(54, 56, 56, 0.7);
@@ -26,20 +20,19 @@
   --color-overlay-60: rgba(255, 255, 255, 0.6);
   --color-overlay-70: rgba(255, 255, 255, 0.7);
 
-  /* Typography */
+
   --font-title: 'Montserrat', sans-serif;
   --font-body: 'Open Sans', sans-serif;
 
-  /* Layout */
+
   --container-width: 1140px;
   --container-fluid-width: 1920px;
   --gutter: 15px;
 
-  /* Shared slim "bar" height for the promo countdown and promo banner so the
-     two blocks above/below the hero are always exactly the same height. */
+
   --promo-bar-height: 190px;
 
-  /* Motion */
+
   --ease: all 0.3s ease;
   --ease-slow: all 0.5s ease;
 }
@@ -56,7 +49,7 @@
   }
 }
 
-/* ----------------------------------------------------------------- reset -- */
+
 *,
 *::after,
 *::before {
@@ -117,7 +110,7 @@ a {
   color: inherit;
 }
 
-/* ------------------------------------------------------------------ base -- */
+
 body {
   height: 100vh;
   font-family: var(--font-body);
@@ -141,7 +134,7 @@ h6 {
   color: var(--color-title);
 }
 
-/* ------------------------------------------------------------- utilities -- */
+
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
@@ -172,7 +165,7 @@ h6 {
   display: none;
 }
 
-/* Visible only to assistive technology */
+
 .visually-hidden {
   position: absolute;
   width: 1px;

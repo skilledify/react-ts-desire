@@ -94,7 +94,7 @@
   padding-right: 15px;
 }
 
-/* ------------------------------------------------------------ breakpoints -- */
+
 @media (max-width: 1200px) {
   .topSliderTitle {
     font-size: 62px;

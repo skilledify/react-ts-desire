@@ -5,15 +5,12 @@ import { VideoModal } from './VideoModal'
 import styles from './VideoBlock.module.css'
 
 interface VideoBlockProps {
-  /** Applied to the outer block — e.g. `article-popup` or `about-section__popup`. */
+
   className: string
   label?: string
 }
 
-/**
- * Background block with a play button that opens the embedded video —
- * replaces the previous `.magnificPopup()` wiring.
- */
+
 export function VideoBlock({ className, label = 'Play video' }: VideoBlockProps) {
   const [open, setOpen] = useState(false)
 

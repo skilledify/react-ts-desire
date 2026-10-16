@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router'
 
-/** Sends the viewport back to the top whenever the route changes. */
+
 export function ScrollToTop() {
   const { pathname } = useLocation()
 

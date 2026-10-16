@@ -23,10 +23,7 @@ export const CONTACT_TEXT =
 export const GOOGLE_MAPS_EMBED =
   'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.6149257674356!2d-122.41327504897585!3d37.79906321843501!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580f18d8c6ea7%3A0x5d7f53fb70a3a903!2zNzI1IEdyZWVuIFN0LCBTYW4gRnJhbmNpc2NvLCBDQSA5NDEzMywg0KHQqNCQ!5e0!3m2!1sru!2sru!4v1648372545803!5m2!1sru!2sru'
 
-/**
- * Items for the horizontal "recently seen" carousel on the contact page.
- * The set is duplicated once so the loop has enough slides to scroll smoothly.
- */
+
 export const CONTACT_SLIDER_TITLES = Array.from({ length: 2 }, (_, index) => index)
 
 const CONTACT_SLIDER_SOURCES = [
@@ -42,7 +39,7 @@ const CONTACT_SLIDER_SOURCES = [
   contactSlider10,
 ]
 
-export const CONTACT_SLIDER_ITEMS = CONTACT_SLIDER_SOURCES.map((src, index) => ({
+export const CONTACT_SLIDER_ITEMS = CONTACT_SLIDER_SOURCES.map((src, index) => ( {
   id: `contact-slider-${index + 1}`,
   src,
   alt: `Contact slider ${index + 1}`,

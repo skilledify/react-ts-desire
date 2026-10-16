@@ -22,7 +22,7 @@ export interface CollectionItem {
   caption: string
 }
 
-/** Shown on the home page — "Furniture new collection". */
+
 export const HOME_COLLECTION: CollectionItem[] = [
   { id: 'c1', src: collection1, alt: 'Truffaut chair', title: 'Truffaut literally trust', caption: 'Living room furntiture | Chair' },
   { id: 'c2', src: collection2, alt: 'Truffaut chair', title: 'Truffaut literally trust', caption: 'Living room furntiture | Chair' },
@@ -31,7 +31,7 @@ export const HOME_COLLECTION: CollectionItem[] = [
   { id: 'c5', src: collection5, alt: 'Truffaut chair', title: 'Truffaut literally trust', caption: 'Living room furntiture | Chair' },
 ]
 
-/** Shown at the bottom of the about page. */
+
 export const ABOUT_COLLECTION: CollectionItem[] = [
   { id: 'a1', src: aboutGallery1, alt: 'About gallery 1', title: 'Truffaut literally trust', caption: 'Living room furntiture | Chair' },
   { id: 'a2', src: aboutGallery2, alt: 'About gallery 2', title: 'Truffaut literally trust', caption: 'Living room furntiture | Chair' },
@@ -42,7 +42,7 @@ export const ABOUT_COLLECTION: CollectionItem[] = [
 
 export interface InspirationMetric {
   label: string
-  /** Percentage rendered on the progress bar. */
+
   value: number
 }
 

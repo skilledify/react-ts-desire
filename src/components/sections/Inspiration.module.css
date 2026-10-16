@@ -73,7 +73,7 @@
   transition: width 0.8s ease;
 }
 
-/* ------------------------------------------------------------ breakpoints -- */
+
 @media (max-width: 992px) {
   .inspirationContent {
     padding: 40px 0;

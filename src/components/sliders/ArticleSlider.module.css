@@ -30,7 +30,7 @@
     opacity: 0.7;
   }
 
-  /* Hide an arrow while looped duplicate slides are being simulated. */
+
   &.swiper-button-lock {
     display: none;
   }

@@ -247,7 +247,7 @@
   line-height: 20px;
 }
 
-/* ------------------------------------------------------------ breakpoints -- */
+
 @media (max-width: 1121px) {
   .blogSingleInner {
     flex-wrap: wrap;

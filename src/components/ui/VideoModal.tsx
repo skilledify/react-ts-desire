@@ -9,11 +9,7 @@ interface VideoModalProps {
   onClose: () => void
 }
 
-/**
- * Lightweight replacement for the previous jQuery Magnific-Popup integration.
- * Renders an accessible dialog with the embedded video, closes on Esc / backdrop
- * click and stops propagating clicks inside the frame.
- */
+
 export function VideoModal({ open, src, title = 'Video', onClose }: VideoModalProps) {
   const closeRef = useRef<HTMLButtonElement>(null)
 

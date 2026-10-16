@@ -13,7 +13,7 @@ export interface BlogPost {
   date: string
   author: string
   category: string
-  /** Cover image — posts with `video`/`slider` media omit it. */
+
   image?: string
   excerpt: string
   media: PostMedia
@@ -26,7 +26,7 @@ const POST_TEXT =
   'Ugh pok pok taxidermy pabst enamel pin edison bulb farm-to-table'
 
 export const BLOG_POSTS: BlogPost[] = [
-  {
+ {
     slug: 'red-selfies-edison-bulb',
     title: 'Red selfies edison bulb four dollar toast humblebrag for the furniture',
     date: 'August 15, 2020',
@@ -36,7 +36,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: POST_TEXT,
     media: 'none',
   },
-  {
+ {
     slug: 'authentic-kogi-shabby-chic',
     title: 'Authentic kogi shabby chic',
     date: 'August 12, 2020',
@@ -45,7 +45,7 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt: POST_TEXT,
     media: 'video',
   },
-  {
+ {
     slug: 'semiotics-fixie-four-dollar-toast',
     title: 'Semiotics fixie four dollar toast, next level woke',
     date: 'August 18, 2020',
@@ -86,7 +86,7 @@ const DETAIL_PARAGRAPH_TWO =
 export const BLOG_POST_DETAILS: Record<string, BlogPostDetail> = Object.fromEntries(
   BLOG_POSTS.map((post) => [
     post.slug,
-    {
+ {
       ...post,
       image: post.image ?? blogCover,
       paragraphs: [DETAIL_PARAGRAPH_ONE, DETAIL_PARAGRAPH_TWO],
@@ -101,7 +101,6 @@ export const BLOG_POST_DETAILS: Record<string, BlogPostDetail> = Object.fromEntr
 )
 
 
-/** Slides shown inside the "slider" post on the blog index. */
 export const ARTICLE_SLIDER_IMAGES = [
   { id: 'a1', src: articleSlider1, alt: 'slider 1' },
   { id: 'a2', src: articleSlider1, alt: 'slider 2' },
@@ -111,16 +110,16 @@ export const ARTICLE_SLIDER_IMAGES = [
 const HERO_TEXT =
   "Deep v you probably haven't heard of them banh mi synth actually affogato. Aesthetic lyft ethical drinking vinegar austint"
 
-/** Slides shown inside the hero slider on the home page. */
+
 export const HERO_SLIDES = [
   { id: 'hero-1', image: heroSlide, alt: 'slider img', title: 'Furniture collection', text: HERO_TEXT },
   { id: 'hero-2', image: heroSlide, alt: 'slider img', title: 'Furniture collection', text: HERO_TEXT },
   { id: 'hero-3', image: heroSlide, alt: 'slider img', title: 'Furniture collection', text: HERO_TEXT },
 ]
 
-/** The two teaser cards rendered at the bottom of the home page. */
+
 export const BLOG_BOX_POSTS = [
-  {
+ {
     id: 'box-1',
     image: blogBox1,
     date: 'March 12, 2020',
@@ -129,7 +128,7 @@ export const BLOG_BOX_POSTS = [
     title: 'Listicle actually selvage activated charcoal for the drinking vinegar',
     slug: 'red-selfies-edison-bulb',
   },
-  {
+ {
     id: 'box-2',
     image: blogBox2,
     date: 'September 28,2020',
@@ -149,7 +148,7 @@ export interface Comment {
 }
 
 export const POST_COMMENTS: Comment[] = [
-  {
+ {
     id: 'c1',
     author: 'Lea Brown',
     date: 'August 12, 2020',
@@ -167,21 +166,21 @@ export const ASIDE_CATEGORIES = [
 ]
 
 export const ASIDE_RECENT_POSTS = [
-  {
+ {
     id: 'recent-1',
     title: 'Cred selfies edison bulb four dollar toast humblebrag',
     date: 'August 10, 2020',
     author: 'Ann Summers',
     slug: 'red-selfies-edison-bulb',
   },
-  {
+ {
     id: 'recent-2',
     title: 'Semiotics fixie four dollar toast, next level woke scenester direct trade photo booth',
     date: 'September 30 ,2020',
     author: 'Ann Summers',
     slug: 'semiotics-fixie-four-dollar-toast',
   },
-  {
+ {
     id: 'recent-3',
     title: 'Cred selfies edison bulb four dollar toast humblebrag',
     date: 'May 2, 2020',
@@ -201,16 +200,12 @@ export const ASIDE_TAGS = [
 export const VIDEO_URL = 'http://www.youtube.com/watch?v=0O2aH4XLbto'
 export const VIDEO_EMBED_URL = 'https://www.youtube.com/embed/0O2aH4XLbto?autoplay=1'
 
-/**
- * Free furniture-themed stock film shown behind the home hero
- * (Mixkit Stock Video Free License — commercial use allowed).
- * The `<video>` element autoplays muted and loops natively.
- */
+
 export const HERO_VIDEO_SRC = 'https://assets.mixkit.co/videos/3090/3090-1080.mp4'
-/** Low-res poster shown before the video loads / if it cannot play. */
+
 export const HERO_VIDEO_POSTER = 'https://assets.mixkit.co/videos/3090/3090-thumb-720-0.jpg'
 
-/** Full-screen promo video hero shown at the top of the home page. */
+
 export const HERO_VIDEO_TITLE = 'Crafted for the way you live'
 export const HERO_VIDEO_TEXT =
   'Watch the Desire story — from the first sketch to the finished piece. ' +

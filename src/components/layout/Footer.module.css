@@ -137,10 +137,10 @@
   color: var(--color-muted);
 }
 
-/* ------------------------------------------------------------ breakpoints -- */
+
 @media (max-width: 992px) {
   .footerInner {
-    /* display: block; */
+
     flex-wrap: wrap;
   }
 
@@ -152,14 +152,10 @@
     display: flex;
 
     flex-wrap: wrap;
-    /* gap: 10px; */
+
     margin: 0 0 25px;
 
-  
-    /* :global(li) {
-      margin-bottom: 0;
-    } */
-  
+
   }
 
 

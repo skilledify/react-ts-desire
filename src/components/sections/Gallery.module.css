@@ -60,7 +60,7 @@
   }
 }
 
-/* Per-category photo count shown inside each filter pill. */
+
 .galleryBtnCount {
   display: inline-flex;
   align-items: center;
@@ -87,7 +87,7 @@
   }
 }
 
-/* Live-updating "showing N of M" line makes the filter result explicit. */
+
 .galleryStatus {
   color: var(--color-muted);
   font-size: 14px;
@@ -102,8 +102,7 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(200px, auto);
-  /* Backfill the holes left around the 2×2 featured tile so the grid
-     always renders as a solid block with no empty cells. */
+
   grid-auto-flow: row dense;
   gap: 30px 34px;
 }
@@ -151,7 +150,7 @@
   }
 }
 
-/* ------------------------------------------------------------ breakpoints -- */
+
 @media (max-width: 992px) {
   .galleryItems {
     gap: 15px;
@@ -170,8 +169,7 @@
     grid-auto-rows: minmax(150px, auto);
   }
 
-  /* Pills wrap onto several rows — drop the desktop margin spacing so the
-     row gap takes over instead of pushing content past the viewport. */
+
   .galleryButtons {
     gap: 12px 15px;
   }
@@ -208,8 +206,7 @@
     grid-row: auto;
   }
 
-  /* Single column: keep each tile square at any width from 320px up
-     instead of alternating fixed rows with stretched auto rows. */
+
   .galleryItemImg {
     aspect-ratio: 1 / 1;
     height: auto;

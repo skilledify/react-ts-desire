@@ -1,14 +1,13 @@
 .banner {
   position: relative;
-  /* Same fixed height as the promo countdown bar (single source of truth). */
+
   height: var(--promo-bar-height);
   display: flex;
   align-items: center;
   overflow: hidden;
   color: var(--color-white);
 
-  /* Yellow accent seam on the hero-facing edge — pairs with the countdown bar
-     above to frame the hero block. */
+
   &::before {
     content: '';
     position: absolute;
@@ -26,8 +25,7 @@
     z-index: 2;
   }
 
-  /* Yellow accent seam on the bottom edge — the same highlight the site
-     header carries along its bottom, so the banner is marked off the same way. */
+
   &::after {
     content: '';
     position: absolute;
@@ -46,7 +44,7 @@
   }
 }
 
-/* Dark photo fills the bar and crops like the hero video. */
+
 .bannerBg {
   position: absolute;
   inset: 0;
@@ -55,7 +53,7 @@
   object-fit: cover;
 }
 
-/* Charcoal tint keeps the copy readable and echoes the countdown bar. */
+
 .bannerOverlay {
   position: absolute;
   inset: 0;
@@ -103,7 +101,7 @@
   color: var(--color-grey);
   font-size: 14px;
   line-height: 20px;
-  /* Cap at two lines so the bar stays slim on wide screens. */
+
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -132,7 +130,7 @@
   }
 }
 
-/* ------------------------------------------------------------ breakpoints -- */
+
 @media (max-width: 992px) {
   .bannerInner {
     flex-direction: column;

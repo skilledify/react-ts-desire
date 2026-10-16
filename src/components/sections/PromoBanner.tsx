@@ -8,11 +8,7 @@ import {
 } from '@/data/promo'
 import styles from './PromoBanner.module.css'
 
-/**
- * Slim advertising banner placed directly under the hero. It matches the promo
- * countdown bar in height (`--promo-bar-height`) and palette — dark photo tint,
- * yellow badge/CTA — but leads with a free-shipping hook instead of a timer.
- */
+
 export function PromoBanner() {
   return (
     <section className={styles.banner} aria-label="Free delivery offer">

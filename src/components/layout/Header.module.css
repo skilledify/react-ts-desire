@@ -1,24 +1,16 @@
 .header {
-  /* Sticky (not fixed) keeps the header in the normal flow, so its width is
-     still resolved from the containing block exactly as before — it never
-     jumps or introduces a horizontal scrollbar when the layout adapts. */
+
   position: sticky;
   top: 0;
-  /* Above every page section (max content z-index is 10) so scrolling content
-     passes underneath, but well below the video modal overlay (100). */
+
   z-index: 20;
-  /* Solid backdrop so content scrolling under the pinned header never shows
-     through the logo/menu. */
+
   background-color: var(--color-white);
-  /* Subtle separation from the content once it slides under the header. */
+
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   padding: 45px 0;
 
-  /* Yellow accent seam on the bottom edge — the same hero-framing seam that
-     the countdown bar (top) and banner bar (bottom) use around the hero
-     block, so the header reads as part of that same visual language.
-     `position: sticky` already makes the header a positioned ancestor, so
-     the seam anchors to its bottom edge without an extra `relative`. */
+
   &::after {
     content: '';
     position: absolute;
@@ -59,14 +51,13 @@
   background-color: transparent;
   cursor: pointer;
 
-  /* Each bar is 3px tall with 6px margins, so the outer bars sit 9px
-     away from the middle one — that offset turns them into a cross. */
+
   span {
     transition: var(--ease);
   }
 }
 
-/* Burger → close (cross) toggle. */
+
 .btnMenuOpen {
   span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
@@ -88,7 +79,7 @@
   z-index: 12;
 }
 
-/* ------------------------------------------------------------- main menu -- */
+
 .menu {
   padding-right: 15px;
 }
@@ -130,7 +121,7 @@
   background-color: var(--color-title);
 }
 
-/* --------------------------------------------------- slide-in side panel -- */
+
 .backdrop {
   position: fixed;
   inset: 0;
@@ -219,40 +210,19 @@
   padding: 0 var(--gutter);
 }
 
-/* ------------------------------------------------------------ breakpoints -- */
+
 @media (max-width: 768px) {
-  .logo {
-    margin: 0 30px;
-  }
-
-  .btn {
-    display: none;
-  }
-
-  .menuItem {
-    padding-left: 0;
-  }
-
-  .menuItem + .menuItem {
-    padding-right: 0;
-  }
-}
-
-@media (max-width: 580px) {
-  .header {
-    padding-top: 42px;
-    padding-bottom: 0;
-  }
-
   .headerInner {
     flex-wrap: wrap;
   }
 
   .logo {
     order: -1;
-    /* Drop the 30px inset from the 768px rule so the logo sits flush with
-       the container's content edge (only the 15px gutter remains). */
-    margin-left: 0;
+    margin: 0 30px;
+  }
+
+  .btn {
+    display: none;
   }
 
   .btnMenu {
@@ -276,12 +246,13 @@
     position: relative;
     z-index: 21;
     text-align: center;
-    transition: transform 0.5s;
-    transform: translateY(-300px);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
   }
 
   .menuOpen {
-    transform: translateY(0);
+    max-height: 500px;
   }
 
   .menuList {
@@ -289,11 +260,11 @@
   }
 
   .menuItem {
-    padding-right: 0;
+    padding-left: 0;
   }
 
   .menuItem + .menuItem {
-    padding-left: 0;
+    padding-right: 0;
     display: block;
     margin-left: 0;
   }
@@ -306,6 +277,12 @@
 
   .menuLink[aria-current='page']::after {
     display: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .logo {
+    margin-left: 0;
   }
 }
 

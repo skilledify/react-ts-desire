@@ -1,10 +1,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  /* Viewport unit, not `100%`: `#root` has no CSS height, so a percentage
-     min-height against its `auto` height collapses to 0 and the footer would
-     float up on short pages. `100vh` fills the screen at every width, letting
-     `.main` stretch and keeping the footer pinned to the bottom. */
+
   min-height: 100vh;
 }
 

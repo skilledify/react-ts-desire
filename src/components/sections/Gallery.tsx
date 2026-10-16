@@ -8,11 +8,11 @@ import type { GalleryCategoryId } from '@/data/gallery'
 import styles from './Gallery.module.css'
 
 interface GalleryProps {
-  /** `page` renders the full grid used on the /gallery route. */
+
   variant?: 'home' | 'page'
 }
 
-/** Home page highlights the first tile; the gallery page highlights the 8th. */
+
 function isFeatured(index: number, variant: GalleryProps['variant']) {
   return variant === 'home' ? index === 0 : index === 7
 }
@@ -58,7 +58,7 @@ export function Gallery({ variant = 'home' }: GalleryProps) {
             {items.map((item, index) => (
               <div
                 key={item.id}
-                className={`${styles.galleryItem} ${
+                className={`${styles.galleryItem} $ {
                   isFeatured(index, variant) ? styles.galleryItemFeatured : ''
                 }`}
               >

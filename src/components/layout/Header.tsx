@@ -69,13 +69,13 @@ export function Header() {
   const [sideOpen, setSideOpen] = useState(false)
   const { pathname } = useLocation()
 
-  // Close both menus whenever navigation happens.
+
   useEffect(() => {
     setBurgerOpen(false)
     setSideOpen(false)
   }, [pathname])
 
-  // Lock body scrolling while the slide-in panel is open.
+
   useEffect(() => {
     if (!sideOpen) return
     const previous = document.body.style.overflow

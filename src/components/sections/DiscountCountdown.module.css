@@ -1,15 +1,13 @@
 .promo {
   position: relative;
-  /* Charcoal surface echoes the hero tint; yellow is the accent. */
+
   background-color: var(--color-title);
   color: var(--color-white);
-  /* Fixed height shared with the promo banner via --promo-bar-height so the
-     two bars above/below the hero are always identical in height. */
+
   height: var(--promo-bar-height);
   padding: 12px 0;
 
-  /* Yellow accent seam on the hero-facing edge — pairs with the banner below
-     to frame the hero block. */
+
   &::after {
     content: '';
     position: absolute;
@@ -68,7 +66,7 @@
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 10px;
-  /* Cap the paragraph at two lines so the bar stays slim on wide screens. */
+
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -96,12 +94,11 @@
   }
 }
 
-/* ----------------------------------------------------------------- timer -- */
+
 .timer {
   display: flex;
   justify-content: center;
-  /* Fluid gap keeps the four units on ONE row at every width — `flex-shrink`
-     on the tiles (below) guarantees nothing ever wraps to a second line. */
+
   gap: clamp(6px, 2vw, 16px);
   max-width: 100%;
   flex-shrink: 0;
@@ -112,14 +109,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* Basis scales with the viewport (60→104px); `1` shrink + `min-width: 0`
-     let the tiles contract proportionally instead of wrapping. */
+
   flex: 0 1 clamp(60px, 21vw, 104px);
   min-width: 0;
-  /* Horizontal inset keeps the longest word ("SECONDS") clear of the border
-     at 320px; with border-box the padding stays inside the tile width. */
+
   padding: 0 6px;
-  /* Shorter tiles keep the bar compact on every width. */
+
   height: clamp(48px, 13vw, 64px);
   border: 1px solid var(--color-divider);
   border-radius: 14px;
@@ -137,12 +132,10 @@
 
 .timerLabel {
   margin-top: clamp(3px, 1vw, 6px);
-  /* Scale the label with the viewport so long words like "SECONDS" fit inside
-     the tile at 320px instead of overflowing horizontally. */
+
   font-size: clamp(7px, 2vw, 11px);
   line-height: 1;
-  /* 0.1vw curve → ~0.4px at 320px, 1px from ~1000px up: tighter tracking on
-     small screens keeps the 7-letter words inside the tile width. */
+
   letter-spacing: clamp(0.3px, 0.1vw, 1px);
   text-transform: uppercase;
   color: var(--color-muted);
@@ -157,7 +150,7 @@
   max-width: 320px;
 }
 
-/* ------------------------------------------------------------ breakpoints -- */
+
 @media (max-width: 992px) {
   .promoInner {
     flex-direction: column;

@@ -4,7 +4,7 @@ import { A11y, Pagination } from 'swiper/modules'
 import { CONTACT_SLIDER_ITEMS } from '@/data/contact'
 import styles from './ContactSlider.module.css'
 
-/** The set is duplicated so the loop can scroll seamlessly at 10 slides per view. */
+
 const SLIDES = [...CONTACT_SLIDER_ITEMS, ...CONTACT_SLIDER_ITEMS]
 
 export function ContactSlider() {
@@ -20,7 +20,7 @@ export function ContactSlider() {
           loop
           speed={600}
           pagination={{ clickable: true }}
-          breakpoints={{
+          breakpoints={ {
             1700: { slidesPerView: 8, slidesPerGroup: 8 },
             1511: { slidesPerView: 6, slidesPerGroup: 6 },
             1201: { slidesPerView: 4, slidesPerGroup: 4 },

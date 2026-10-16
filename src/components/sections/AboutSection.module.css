@@ -59,7 +59,7 @@
   padding: 0 var(--gutter);
 }
 
-/* ------------------------------------------------------------ breakpoints -- */
+
 @media (max-width: 992px) {
   .aboutText {
     padding-left: 0;

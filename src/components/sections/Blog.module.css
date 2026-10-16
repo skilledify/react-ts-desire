@@ -115,7 +115,7 @@
   margin-bottom: 25px;
 }
 
-/* ------------------------------------------------------------ breakpoints -- */
+
 @media (max-width: 1121px) {
   .blogInner {
     flex-wrap: wrap;
